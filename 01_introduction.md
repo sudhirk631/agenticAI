@@ -126,3 +126,7 @@ Agentic AI is a subset of generative AI that is centered around the orchestratio
 
 For example, generative AI could be used to create marketing materials, while agentic AI could then be used to deploy these materials, track their performance, and automatically adjust the marketing strategy based on the results. In this way, agentic AI can use generative AI as a tool to achieve its goals.
 
+## Agentic AI versus AI agents
+While the terms "agentic AI" and "AI agents" are often used together, there is a subtle difference. AI agents are the building blocks of agentic AI. Think of AI agents as individual tools in a toolbox, while agentic AI is the coordinated use of those tools to build an entire house. 
+
+While an AI agent might focus on a specific task, agentic AI employs multiple agents to handle complex workflows. Agentic AI acts as an overarching system that coordinates and manages these agents to achieve broader objectives.
