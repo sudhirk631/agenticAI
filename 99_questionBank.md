@@ -51,3 +51,23 @@ This loop differentiates agents from static ML models.
 Traditional ML pipelines are model‑centric: data → training → prediction.  
 Agentic AI is workflow‑centric: perception → reasoning → action → reflection.  
 It emphasizes autonomy, tool use, and continuous adaptation rather than one‑shot predictions.
+
+## Q6: Can Agentic AI and Generative AI work together?
+**Answer:**  
+Yes. Generative AI can create content, while Agentic AI orchestrates its use.  
+**Example:** Generative AI produces a report; Agentic AI distributes it, queries databases for updates, and refines the report automatically.
+
+## Q7: What are some real‑world use cases of Agentic AI?
+**Answer:**  
+- **Customer Support**: Agents that resolve queries using knowledge bases.  
+- **Data Analysis**: Agents that query BigQuery and explain results.  
+- **Workflow Automation**: Agents that upload, summarize, and store documents.  
+- **Marketing**: Agents that deploy campaigns and adjust strategies based on performance.
+
+# Q8: What skills should students highlight when discussing Agentic AI in interviews?
+**Answer:**  
+- Understanding of autonomy, reasoning, and tool use.  
+- Familiarity with cloud platforms (Google Cloud, Vertex AI).  
+- Ability to explain agent workflows clearly.  
+- Practical coding experience with APIs and orchestration frameworks.  
+This shows both conceptual clarity and hands‑on readiness.
