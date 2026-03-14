@@ -13,17 +13,18 @@ Students and professionals often need to query large datasets, interpret results
 An **Agentic AI Data Agent** automates this process by combining reasoning with tool use—querying BigQuery, analyzing results, and producing summaries or reports.
 
 ## Architecture Diagram (Flow)
-[ User Query ]
-↓
-[ LLM Reasoning (Vertex AI) ]
-↓
-[ BigQuery API Call ]
-↓
-[ Result Interpretation ]
-↓
-[ Report Generation ]
-↓
+[ User Query ] ->
+
+[ LLM Reasoning (Vertex AI) ] ->
+
+[ BigQuery API Call ] ->
+
+[ Result Interpretation ] ->
+
+[ Report Generation ] ->
+
 [ Reflection & Feedback Loop ]
+
 
 ## Workflow Explanation
 1. **Perception**: The agent receives a user query (e.g., “Show average sales by region”).  
