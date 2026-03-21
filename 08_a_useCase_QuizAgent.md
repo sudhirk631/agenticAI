@@ -24,3 +24,76 @@ it dynamically adjust the difficulty and content of subsequent questions.
 3. Vertex AI: An ML platform that lets you train and deploy ML models and AI applications, and customize LLMs for use in AI-powered applications.
 4. Vertex AI Agent Engine Sessions: A persistent storage service that saves and retrieves the history of interactions between a user and agents.
 5. Memory Bank: A persistent storage service that generates, refines, manages, and retrieves long-term memories based on a user's conversations with an agent.
+
+```python
+# Import the LlmAgent class from ADK — this is the core agent abstraction
+from google.adk.agents import LlmAgent
+
+# Import CallbackContext — used to pass state and context into callbacks
+from google.adk.agents.callback_context import CallbackContext
+
+# Import generic content types from Google GenAI SDK
+from google.genai import types
+
+# Optional typing support for better clarity in function signatures
+from typing import Optional
+
+# Import quiz-related tool functions (these are custom tools you expose to the agent)
+from tools.tools import (
+    get_quiz_questions,   # Fetch quiz questions
+    start_quiz,           # Begin a new quiz session
+    submit_answer,        # Submit an answer to the current question
+    get_current_question, # Retrieve the current question
+    get_quiz_status,      # Check quiz progress/status
+    reset_quiz,           # Reset quiz state
+)
+
+# Import base prompt and quiz instructions — these define the agent’s behavior
+from python_tutor_core.prompts import BASE_PROMPT, QUIZ_INSTRUCTIONS
+
+# Utility function to initialize quiz state
+from python_tutor_core.agent_utils import initialize_quiz_state
+
+
+# -------------------------------
+# Callback to initialize quiz state
+# -------------------------------
+# This function runs *before* the agent executes.
+# It ensures that the quiz state is initialized in the agent’s context.
+# Reference: https://google.github.io/adk-docs/callbacks/types-of-callbacks/#before-agent-callback
+def before_agent_callback(callback_context: CallbackContext) -> Optional[types.Content]:
+    """Initialize quiz state if not already present"""
+    initialize_quiz_state(callback_context.state)
+    return None
+
+
+# -------------------------------
+# Define the list of tools available to the agent
+# -------------------------------
+quiz_tools = [
+    get_quiz_questions,
+    start_quiz,
+    submit_answer,
+    get_current_question,
+    get_quiz_status,
+    reset_quiz,
+]
+
+
+# -------------------------------
+# Root agent definition
+# -------------------------------
+# Create an LlmAgent with:
+# - Model: Gemini 2.5 Flash (fast LLM for interactive tasks)
+# - Name: Identifier for the agent instance
+# - Instruction: Concatenation of base prompt + quiz instructions
+# - Tools: The quiz functions defined above
+# - Callback: The before_agent_callback to set up state
+root_agent = LlmAgent(
+    model="gemini-2.5-flash",
+    name="python_tutor_short_term",
+    instruction=BASE_PROMPT + QUIZ_INSTRUCTIONS,
+    tools=quiz_tools,
+    before_agent_callback=before_agent_callback,
+)
+```
