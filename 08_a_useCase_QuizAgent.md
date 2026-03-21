@@ -25,6 +25,8 @@ it dynamically adjust the difficulty and content of subsequent questions.
 4. Vertex AI Agent Engine Sessions: A persistent storage service that saves and retrieves the history of interactions between a user and agents.
 5. Memory Bank: A persistent storage service that generates, refines, manages, and retrieves long-term memories based on a user's conversations with an agent.
 
+## The Agent code for short-term memory, which is the session turn memory.
+
 ```python
 # Import the LlmAgent class from ADK — this is the core agent abstraction
 from google.adk.agents import LlmAgent
